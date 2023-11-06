@@ -23,7 +23,8 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <h1>Administracion Single</h1>
+        
+            <?php include_once('./pages/cruds-RDH/admin-single/insert-read.php') ?>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->

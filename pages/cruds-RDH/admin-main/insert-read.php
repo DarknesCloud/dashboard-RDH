@@ -23,6 +23,13 @@ function mostrarNoticias($dbh)
         echo "<td>
                 <a href='/purple/pages/cruds-RDH/admin-main/update.php?id=" . $noticia['id'] . "' class='btn btn-primary'>Update</a>
                 <a href='/purple/pages/cruds-RDH/admin-main/delete.php?id=" . $noticia['id'] . "' class='btn btn-danger'>Delete</a>
+                <form action='/purple/admin-single' method='post' style='display: inline;'>
+                <input type='hidden' name='id' value='" . $noticia['id'] . "'>
+                <input type='hidden' name='titulo' value='" . $noticia['titulo'] . "'>
+                <input type='hidden' name='categoria' value='" . $noticia['categoria'] . "'>
+                <input type='hidden' name='fecha' value='" . $noticia['fecha'] . "'>
+                <button type='submit' class='btn btn-info' name='post_single'>Crear Blog</button>
+            </form>
             </td>";
         echo "</tr>";
 
