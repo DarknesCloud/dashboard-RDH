@@ -17,6 +17,26 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      // Mostrar/ocultar menú de cierre de sesión en hover
+      $('#logoutIcon').hover(function() {
+        $('#logoutDropdown').dropdown('toggle');
+      });
+
+      $('#logoutDropdown').hover(function() {
+        $('#logoutDropdown').dropdown('toggle');
+      });
+
+
+    });
+    </script>
+
+
+
   </head>
   <body>
 
@@ -151,10 +171,19 @@
                 <h6 class="p-3 mb-0 text-center">See all notifications</h6>
               </div>
             </li>
-            <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="#">
-                <i class="mdi mdi-power"></i>
-              </a>
+            <li class="nav-item nav-logout d-none d-lg-block" id="logoutIcon">
+              <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" id="logoutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="mdi mdi-power"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="logoutDropdown">
+                  <li>
+                    <form action='sistema_login/logout.php' method="post">
+                    <button type="submit" class="dropdown-item" href="#" id="logoutButton">Cerrar sesión</button>
+                    </form>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li class="nav-item nav-settings d-none d-lg-block">
               <a class="nav-link" href="#">
