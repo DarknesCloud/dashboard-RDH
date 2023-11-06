@@ -28,7 +28,11 @@ if ($path === '/purple/') {
     include('./sistema_login/login.php');
 } elseif($path === '/purple/register'){
     include('./sistema_login/register.php');
-} else {
+} elseif($path === '/purple/graficos'){
+    include('./graficos.php');
+}
+
+else {
     echo "404 - Página no encontrada";
 }
 }

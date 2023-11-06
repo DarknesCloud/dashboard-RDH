@@ -8,8 +8,14 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  
+                  <?php
+                    if (isset($_SESSION['user_details'])) {
+                        $userDetails = $_SESSION['user_details'];
+                        echo '<span class="font-weight-bold mb-2">' . $userDetails['name'] . ' ' . $userDetails['last_name'] . '</span>';
+                    }
+                    ?>
+                  <span class="text-secondary text-small">Jefe de Proyecto</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
@@ -22,13 +28,13 @@
             </li>
           
             <li class="nav-item">
-              <a class="nav-link" href="pages/forms/basic_elements.html">
+              <a class="nav-link" href="/purple/visitantes">
                 <span class="menu-title">Visitantes</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="/purple/graficos">
                 <span class="menu-title">Graficos</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
@@ -49,7 +55,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="/purple/configuracion">
                 <span class="menu-title">Configuracion</span>
                 <i class="mdi mdi-cog-large cog-icon"></i>
               </a>
