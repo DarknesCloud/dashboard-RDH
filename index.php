@@ -30,10 +30,14 @@ if ($path === '/purple/') {
     include('./sistema_login/register.php');
 } elseif($path === '/purple/graficos'){
     include('./graficos.php');
+}elseif($path === '/purple/visitantes'){
+    include('./visitantes.php');
+}elseif($path === '/purple/configuracion'){
+    include('./configuracion.php');
 }
 
 else {
-    echo "404 - Página no encontrada";
+    include_once('./pages/cruds-RDH/error-404.php');
 }
 }
 

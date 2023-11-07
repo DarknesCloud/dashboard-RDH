@@ -21,7 +21,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="/purple/">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -29,13 +29,13 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/purple/visitantes">
-                <span class="menu-title">Visitantes</span>
+                <span class="menu-title">Lo mas visto</span>
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/purple/graficos">
-                <span class="menu-title">Graficos</span>
+                <span class="menu-title">Estadistica</span>
                 <i class="mdi mdi-chart-bar menu-icon"></i>
               </a>
             </li>
@@ -48,7 +48,7 @@
               <div class="collapse" id="general-pages">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="/purple/dashboard-main">Admin Main</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="/purple/admin-cat">Admin Categoria</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="/purple/admin-cat">Admin Categoria</a></li> -->
                   <li class="nav-item"> <a class="nav-link" href="/purple/admin-single">Admin Single</a></li>
 
                 </ul>

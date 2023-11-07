@@ -40,12 +40,11 @@ include_once("./conexion/conexion.php");
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Insertar y Leer de la tabla 'single'</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Insertar en 'single' y Mostrar Registros</h1>
+        <h1>Insertar BLOG</h1>
 
         <!-- Formulario para insertar en 'single' -->
         <form method="post" action="">
@@ -94,12 +93,15 @@ include_once("./conexion/conexion.php");
                 <input type="date" id="fecha" name="fecha" class="form-control" placeholder="Fecha">
             </div>
 
-            <button type="submit" class="btn btn-primary" name="insert_single">Insertar en 'single'</button>
+            <button type="submit" class="btn btn-primary" name="insert_single">Registrar BLOG</button>
         </form>
-
+<br/>
+<br/>
 
         <!-- Mostrar registros de la tabla 'single' -->
-        <h2>Registros en 'single'</h2>
+        <h2>Blogs Registrados</h2>
+<br/>
+
         <div class="table-responsive">
     <table class='table table-striped'>
         <thead>
