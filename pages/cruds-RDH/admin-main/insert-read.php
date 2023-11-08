@@ -8,9 +8,24 @@ function mostrarNoticias($dbh)
     $noticias = $stmt->fetchAll();
 
     echo "<h2>Noticias</h2>";
-    echo "<table class='table'>";
-    echo "<tr><th>ID</th><th>Título</th><th>Subtítulo</th><th>Categoría</th><th>Contenido</th><th>Imagen</th><th>Fecha</th><th>Acciones</th></tr>";
-
+    echo "<div class='table-responsive'>";
+    echo "<table class='table table-striped table-hover'>"; // Agregar clases de Bootstrap para diseño de tabla
+    
+    echo "<thead class='table-dark'>"; // Encabezado oscuro
+    echo "<tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Subtítulo</th>
+            <th>Categoría</th>
+            <th>Contenido</th>
+            <th>Imagen</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>";
+    echo "</thead>";
+    
+    echo "<tbody>";
+    
     foreach ($noticias as $noticia) {
         echo "<tr>";
         echo "<td>" . $noticia['id'] . "</td>";
@@ -24,19 +39,21 @@ function mostrarNoticias($dbh)
                 <a href='/purple/pages/cruds-RDH/admin-main/update.php?id=" . $noticia['id'] . "' class='btn btn-primary'>Update</a>
                 <a href='/purple/pages/cruds-RDH/admin-main/delete.php?id=" . $noticia['id'] . "' class='btn btn-danger'>Delete</a>
                 <form action='/purple/admin-single' method='post' style='display: inline;'>
-                <input type='hidden' name='id' value='" . $noticia['id'] . "'>
-                <input type='hidden' name='titulo' value='" . $noticia['titulo'] . "'>
-                <input type='hidden' name='categoria' value='" . $noticia['categoria'] . "'>
-                <input type='hidden' name='fecha' value='" . $noticia['fecha'] . "'>
-                <button type='submit' class='btn btn-info' name='post_single'>Crear Blog</button>
-            </form>
+                    <input type='hidden' name='id' value='" . $noticia['id'] . "'>
+                    <input type='hidden' name='titulo' value='" . $noticia['titulo'] . "'>
+                    <input type='hidden' name='categoria' value='" . $noticia['categoria'] . "'>
+                    <input type='hidden' name='fecha' value='" . $noticia['fecha'] . "'>
+                    <button type='submit' class='btn btn-info' name='post_single'>Crear Blog</button>
+                </form>
             </td>";
         echo "</tr>";
-
-
     }
-
+    
+    echo "</tbody>";
+    
     echo "</table>";
+    echo "</div>";
+    
 }
 
 // Comprobación si se ha enviado el formulario de inserción

@@ -24,6 +24,9 @@
         <div class="main-panel">
           <div class="content-wrapper">
             <h1>Configuracion</h1>
+            <br/>
+
+            <?php include_once('./conf_user/update_user.php') ?>
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->

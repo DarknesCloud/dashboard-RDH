@@ -73,12 +73,16 @@
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
-                    <?php
+                <?php
                     if (isset($_SESSION['user_details'])) {
                         $userDetails = $_SESSION['user_details'];
-                        echo '<p class="mb-1 text-black">' . $userDetails['name'] . ' ' . $userDetails['last_name'] . '</p>';
+                        $userDetailsOutput = '<p class="mb-1 text-black">' . $userDetails['name'] . ' ' . $userDetails['last_name'] . '</p>';
                     }
                     ?>
+                    <?php if (isset($userDetailsOutput)) {
+                      echo $userDetailsOutput;
+                  } ?>
+
                 </div>
 
               </a>

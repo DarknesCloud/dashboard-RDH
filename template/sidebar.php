@@ -9,12 +9,16 @@
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
                   
-                  <?php
-                    if (isset($_SESSION['user_details'])) {
-                        $userDetails = $_SESSION['user_details'];
-                        echo '<span class="font-weight-bold mb-2">' . $userDetails['name'] . ' ' . $userDetails['last_name'] . '</span>';
-                    }
-                    ?>
+                <?php
+                  $userDetailsOutput = ''; // Inicializa la variable para almacenar la salida
+
+                  if (isset($_SESSION['user_details'])) {
+                      $userDetails = $_SESSION['user_details'];
+                      $userDetailsOutput = '<span class="font-weight-bold mb-2">' . $userDetails['name'] . ' ' . $userDetails['last_name'] . '</span>';
+                  }
+                  ?>
+                  <?php echo $userDetailsOutput; ?>
+
                   <span class="text-secondary text-small">Jefe de Proyecto</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -55,7 +59,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/purple/configuracion">
+            <a class="nav-link" href="/purple/configuracion?id=<?= $userDetails['id'] ?>">
                 <span class="menu-title">Configuracion</span>
                 <i class="mdi mdi-cog-large cog-icon"></i>
               </a>

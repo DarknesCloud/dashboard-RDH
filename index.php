@@ -33,7 +33,7 @@ if ($path === '/purple/') {
 }elseif($path === '/purple/visitantes'){
     include('./visitantes.php');
 }elseif($path === '/purple/configuracion'){
-    include('./configuracion.php');
+    include('./conf_user/configuracion.php');
 }
 
 else {

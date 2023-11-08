@@ -27,7 +27,7 @@ try {
                 $_SESSION['name'] = $name;
 
                 // Obtener más detalles del usuario desde la base de datos
-                $stmt = $dbh->prepare("SELECT name, last_name FROM users WHERE name = :name");
+                $stmt = $dbh->prepare("SELECT name, last_name, id FROM users WHERE name = :name");
                 $stmt->bindParam(':name', $name);
                 $stmt->execute();
                 $userDetails = $stmt->fetch(PDO::FETCH_ASSOC);
