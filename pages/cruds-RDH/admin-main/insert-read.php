@@ -70,15 +70,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$titulo, $subtitulo, $categoria, $contenido, $imagen, $fecha]);
     }
 }
+
+try {
+    // Preparar la consulta SQL para obtener valores únicos de la columna 'categoria'
+    $query = "SELECT * FROM categorias";
+    $statement = $dbh->prepare($query);
+
+    // Ejecutar la consulta
+    $statement->execute();
+    $result = $statement->fetchAll();
+
+
+} catch (PDOException $e) {
+    // Manejo de errores
+    echo "Error: " . $e->getMessage();
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>CRUD de Noticias</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <h1>CRUD de Noticias</h1>
@@ -95,7 +113,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="categoria" class="form-label">Categoría:</label>
-                <input type="text" class="form-control" id="categoria" name="categoria">
+                <select class="form-select" id="categoria" name="categoria" required>
+                    <option>Seleccionar una opcion</option>
+                    <?php foreach($result as $categoria): ?>
+                    <option value="<?php echo $categoria['categoria']; ?>">
+                        <?php echo $categoria['categoria']; ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <!-- <input type="text" class="form-control" id="categoria" name="categoria"> -->
             </div>
             <div class="mb-3">
                 <label for="contenido" class="form-label">Contenido:</label>
@@ -103,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="mb-3">
                 <label for="imagen" class="form-label">Imagen:</label>
-                <input type="file" class="form-control" id="imagen" name="imagen">
+                <input type="file" class="form-control" id="imagen" name="imagen" required>
             </div>
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label>
@@ -117,4 +144,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
